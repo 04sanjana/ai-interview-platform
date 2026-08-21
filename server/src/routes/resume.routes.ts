@@ -1,9 +1,12 @@
 import express from "express";
-import upload from "../config/multer";
+import multer from "multer";
 import { authenticateUser } from "../middleware/auth.middleware";
 import { uploadResume } from "../controllers/resume.controller";
 
 const router = express.Router();
+
+const upload = multer({ dest: "src/uploads/resumes" });
+
 
 router.post(
   "/upload",
